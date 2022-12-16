@@ -1,0 +1,107 @@
+<footer class="footer page__footer">
+    <div class="footer__container container">
+      <div>
+        <h2 class="footer__heading heading heading--s">About</h2>
+        <a class="link footer__link" href="/">Susparsa Store</a>
+        <address class="footer__adress">Geneva, Switzerland
+          <ul class="footer__list--address list">
+            <li><a class="link link--disabled" href="https://www.facebook.com/" target="_blank"><img
+                  src="/assets/img/facebook_logo.svg" alt=""></a>
+            </li>
+            <li><a class="link link--disabled" href="https://www.instagram.com/" target="_blank"><img src="/assets/img/insta_logo.svg"
+                  alt=""></a>
+            </li>
+          </ul>
+        </address>
+      </div>
+      <div>
+        <h2 class="footer__heading heading heading--s">Company</h2>
+        <nav>
+          <ul class="list footer__list">
+            <li><a class="link footer__link" href="#">Women</a></li>
+            <li><a class="link footer__link" href="#">Men</a></li>
+            <li><a class="link footer__link" href="#">Kids</a></li>
+            <li><a class="link footer__link" href="#">About Us</a></li>
+            <li><a class="link footer__link" href="#">Our Materials</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div>
+        <h2 class="footer__heading heading heading--s">Useful Links</h2>
+        <nav>
+          <ul class="list footer__list">
+            <li><a class="link footer__link" href="#">Privacy Policy</a></li>
+            <li><a class="link footer__link" href="#">Shipping Policy</a></li>
+            <li><a class="link footer__link" href="#">Return & Refund Policy</a></li>
+            <li><a class="link footer__link" href="#">Terms of Service</a></li>
+            <li><a class="link footer__link" href="#">Contact Us</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+    <small class="text">&copy; Susparsa 2021</small>
+
+  </footer>
+
+
+
+
+{% schema %}
+  {
+    "name": "alternate-footer",
+    "settings": [],
+    "max_blocks": 4,
+    "blocks": [
+     {
+       "name": "About",
+       "type": "about",
+       "settings": [
+           {
+            "type": "text",
+            "id": "footer_heading",
+            "label": "Heading",
+            "default": "Quick links"
+          },
+           {
+            "type": "richtext",
+            "id": "paragraph",
+            "label": "Paragraph"
+            },
+         {
+            "type": "text",
+            "id": "footer_linkFB",
+            "label": "Facebook links"
+          },
+         {
+            "type": "text",
+            "id": "footer_linkInst",
+            "label": "Instagram links"
+          }
+       ]
+     },
+       {
+       "name": "Menu",
+       "type": "menu",
+       "settings": [
+           {
+            "type": "text",
+            "id": "footer_heading",
+            "label": "Heading",
+            "default": "Quick links"
+          },
+           {
+        "type": "link_list",
+        "id": "menu",
+        "label": "Menu"
+      }
+       ]
+         }
+  ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}
