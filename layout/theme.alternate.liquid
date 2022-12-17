@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="{{ request.locale.iso_code }}">
+  <head>
+
+    <link rel="stylesheet" href="{{ 'style.css' | asset_url }}">
+
+    {{content_for_header}}
+
+  </head>
+
+  <body class="page">
+
+    
+    
+      {% section "alternate-header" %}
+
+      {% render "alternate-breadcrumbs" %}
+
+     <main class="page__main main container" id="main">
+
+  {{ content_for_layout }}
+
+         </main>
+
+      {% section "alternate-footer" %}
+
+
+    
+      
+  </body>
+</html>
