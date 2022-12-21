@@ -4,16 +4,16 @@
     "bacb6636-ff65-4a8f-a84a-bedcf9993577": {
       "type": "alternate-main-product",
       "blocks": {
-        "23021f20-a93f-4234-ab7d-392e5af770cd": {
+        "4822ad1d-19ee-4640-a726-49d98941e7f5": {
           "type": "accordeon",
           "settings": {
-            "footer_heading": "Quick links",
-            "paragraph": ""
+            "title": "99999",
+            "text": "<p>222222222222<\/p>"
           }
         }
       },
       "block_order": [
-        "23021f20-a93f-4234-ab7d-392e5af770cd"
+        "4822ad1d-19ee-4640-a726-49d98941e7f5"
       ],
       "settings": {
       }

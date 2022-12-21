@@ -2,7 +2,7 @@
   <section class="product__product-card">
     <div class="product__info">
       <h1 class="product__name heading heading--lg">{{ product.title }}</h1>
-      <p class="product__code">CHF 40</p>
+      <p class="product__code">{{ product.price | money_with_currency }}</p>
       <p class="product__tax">Tax included</p>
 
       <form>
@@ -176,86 +176,93 @@
         </div>
       </form>
 
-      <p class="product__description">A unisex basic garment with a loose fit. Light and comfortable to your skin.</p>
-      <p class="product__description product__description--last">Certification of cotton - GOTS</p>
+      {% if product.content %}
+        <p class="product__description product__description--last">{{ product.description }}</p>
+      {% endif %}
     </div>
 
     <img class="product__image" src="{{ product.featured_image | image_url }}" alt="" role="presentation">
   </section>
 
-  {% comment %}
-    <section class="product__additional">
-      <details class="product__additional-topic" open>
-        <summary class="product__additional-title">Sizing & Fit</summary>
-        <p class="product__additional-text">Olga is 175cm, she is wearing a size S.</p>
-      </details>
-
-      <details class="product__additional-topic">
-        <summary class="product__additional-title">Composition & Care</summary>
-      </details>
-
-      <details class="product__additional-topic">
-        <summary class="product__additional-title">Delivery & Returns</summary>
-      </details>
-    </section>
-  {% endcomment %}
-
   <section class="product__additional accordion">
-    <div class="product__additional-topic">
-      <h2 class="heading">
-        <button
-          class="product__additional-title accordion__button"
-          id="accordion__button--1"
-          aria-expanded="true"
-          aria-controls="accordion__section--1"
+    {% for block in section.blocks %}
+      {% case block.type %}
+        {% when 'accordeon' %}
+          <div class="product__additional-topic">
+            <h2 class="heading" id="productInfo1">
+              <button
+                type="button"
+                aria-controls="description-{{ block.id }}"
+                class="product__additional-title accordion__button"
+                aria-expanded="false"
+                id="id-{{ block.id }}"
+              >
+                {{ block.settings.title }}
+              </button>
+            </h2>
+            <div class="product__additional-text" id="description-{{ block.id }}" aria-labelledby="id-{{ block.id }}">
+              {{ block.settings.text }}
+            </div>
+          </div>
+      {% endcase %}
+    {% endfor %}
+
+    {% comment %}
+      <div class="product__additional-topic">
+        <h2 class="heading">
+          <button
+            class="product__additional-title accordion__button"
+            id="accordion__button--1"
+            aria-controls="accordion__section--1"
+          >
+            Sizing &amp; Fit
+          </button>
+        </h2>
+        <p class="product__additional-text" id="accordion__section--1" aria-labelledby="accordion__button--1">
+          Olga is 175cm, she is wearing a size S.
+        </p>
+      </div>
+      <div class="product__additional-topic">
+        <h2 class="heading">
+          <button
+            class="product__additional-title accordion__button"
+            id="accordion__button--2"
+            aria-expanded="false"
+            aria-controls="accordion__section--2"
+          >
+            Composition &amp; Care
+          </button>
+        </h2>
+        <p
+          class="product__additional-text"
+          id="accordion__section--2"
+          hidden=""
+          aria-labelledby="accordion__button--2"
         >
-          Sizing &amp; Fit
-        </button>
-      </h2>
-      <p class="product__additional-text" id="accordion__section--1" aria-labelledby="accordion__button--1">
-        Olga is 175cm, she is wearing a size S.
-      </p>
-    </div>
-    <div class="product__additional-topic">
-      <h2 class="heading">
-        <button
-          class="product__additional-title accordion__button"
-          id="accordion__button--2"
-          aria-expanded="false"
-          aria-controls="accordion__section--2"
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Hic, nemo.
+        </p>
+      </div>
+      <div class="product__additional-topic">
+        <h2 class="heading">
+          <button
+            class="product__additional-title accordion__button"
+            id="accordion__button--3"
+            aria-expanded="false"
+            aria-controls="accordion__section--3"
+          >
+            Delivery &amp; Returns
+          </button>
+        </h2>
+        <p
+          class="product__additional-text"
+          id="accordion__section--3"
+          hidden=""
+          aria-labelledby="accordion__button--3"
         >
-          Composition &amp; Care
-        </button>
-      </h2>
-      <p
-        class="product__additional-text"
-        id="accordion__section--2"
-        hidden=""
-        aria-labelledby="accordion__button--2"
-      >
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Hic, nemo.
-      </p>
-    </div>
-    <div class="product__additional-topic">
-      <h2 class="heading">
-        <button
-          class="product__additional-title accordion__button"
-          id="accordion__button--3"
-          aria-expanded="false"
-          aria-controls="accordion__section--3"
-        >
-          Delivery &amp; Returns
-        </button>
-      </h2>
-      <p
-        class="product__additional-text"
-        id="accordion__section--3"
-        hidden=""
-        aria-labelledby="accordion__button--3"
-      >
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi tenetur alias corrupti id hic amet?
-      </p>
-    </div>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi tenetur alias corrupti id hic amet?
+        </p>
+      </div>
+    {% endcomment %}
   </section>
 </div>
 
@@ -272,21 +279,26 @@
       "settings": [
         {
           "type": "text",
-          "id": "footer_heading",
-          "label": "Heading",
-          "default": "Quick links"
+          "id": "title",
+          "label": "Title"
         },
         {
           "type": "richtext",
-          "id": "paragraph",
-          "label": "Paragraph"
+          "id": "text",
+          "label": "text"
         }
       ]
     }
   ],
   "presets": [
     {
-      "name": "alternate-main-product"
+      "name": "Product page",
+      "settings": {},
+      "blocks": [
+        {
+          "type": "accordeon"
+        }
+      ]
     }
   ]
 }
