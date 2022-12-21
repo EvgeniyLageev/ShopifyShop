@@ -191,6 +191,31 @@
         "settings": {
           "color_scheme": "background-1"
         }
+      },
+      "alternate-header": {
+        "type": "alternate-header",
+        "settings": {
+          "menu": ""
+        }
+      },
+      "alternate-footer": {
+        "type": "alternate-footer",
+        "blocks": {
+          "8152a71f-3dec-4824-91af-41849821c96a": {
+            "type": "about",
+            "settings": {
+              "footer_heading": "About",
+              "paragraph": "<p>Susparsa<\/p>",
+              "footer_linkFB": "facebook.com",
+              "footer_linkInst": ""
+            }
+          }
+        },
+        "block_order": [
+          "8152a71f-3dec-4824-91af-41849821c96a"
+        ],
+        "settings": {
+        }
       }
     },
     "content_for_index": [
