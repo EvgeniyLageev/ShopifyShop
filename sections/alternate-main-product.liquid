@@ -1,189 +1,295 @@
 <div class="product main__product">
-      <section class="product__product-card">
-        <div class="product__info">
-          <h1 class="product__name heading heading--lg">{{ product.title }}</h1>
-          <p class="product__code">CHF 40</p>
-          <p class="product__tax">Tax included</p>
+  <section class="product__product-card">
+    <div class="product__info">
+      <h1 class="product__name heading heading--lg">{{ product.title }}</h1>
+      <p class="product__code">CHF 40</p>
+      <p class="product__tax">Tax included</p>
 
-          <form>
-            <fieldset class="fieldset product__fieldset">
-              <legend class="product__input-title">Size</legend>
+      <form>
+        <fieldset class="fieldset product__fieldset">
+          <legend class="product__input-title">Size</legend>
 
-              <div class="product__input-container">
-                <input class="product__input-radio visually-hidden" type="radio" name="size" id="size--xs" value="xs">
-                <label class="product__input-label" for="size--xs">
-                  <span class="visually-hidden">choose size </span>XS
-                </label>
+          <div class="product__input-container">
+            <input class="product__input-radio visually-hidden" type="radio" name="size" id="size--xs" value="xs">
+            <label class="product__input-label" for="size--xs">
+              <span class="visually-hidden">choose size </span>XS
+            </label>
 
-                <input class="product__input-radio visually-hidden" type="radio" name="size" id="size--s" value="s"
-                  checked>
-                <label class="product__input-label" for="size--s">
-                  <span class="visually-hidden">choose size </span>S
-                </label>
+            <input
+              class="product__input-radio visually-hidden"
+              type="radio"
+              name="size"
+              id="size--s"
+              value="s"
+              checked
+            >
+            <label class="product__input-label" for="size--s">
+              <span class="visually-hidden">choose size </span>S
+            </label>
 
-                <input class="product__input-radio visually-hidden" type="radio" name="size" id="size--m" value="m">
-                <label class="product__input-label" for="size--m">
-                  <span class="visually-hidden">choose size </span>M
-                </label>
+            <input class="product__input-radio visually-hidden" type="radio" name="size" id="size--m" value="m">
+            <label class="product__input-label" for="size--m">
+              <span class="visually-hidden">choose size </span>M
+            </label>
 
-                <input class="product__input-radio visually-hidden" type="radio" name="size" id="size--l" value="l">
-                <label class="product__input-label" for="size--l">
-                  <span class="visually-hidden">choose size </span>L
-                </label>
+            <input class="product__input-radio visually-hidden" type="radio" name="size" id="size--l" value="l">
+            <label class="product__input-label" for="size--l">
+              <span class="visually-hidden">choose size </span>L
+            </label>
 
-                <input class="product__input-radio visually-hidden" type="radio" name="size" id="size--xl" value="xl">
-                <label class="product__input-label" for="size--xl">
-                  <span class="visually-hidden">choose size </span>XL
-                </label>
+            <input class="product__input-radio visually-hidden" type="radio" name="size" id="size--xl" value="xl">
+            <label class="product__input-label" for="size--xl">
+              <span class="visually-hidden">choose size </span>XL
+            </label>
 
-                <input class="product__input-radio visually-hidden" type="radio" name="size" id="size--2xl" value="2xl"
-                  disabled>
-                <label class="product__input-label" for="size--2xl">
-                  <span class="visually-hidden">choose size </span>2XL
-                </label>
-              </div>
-            </fieldset>
+            <input
+              class="product__input-radio visually-hidden"
+              type="radio"
+              name="size"
+              id="size--2xl"
+              value="2xl"
+              disabled
+            >
+            <label class="product__input-label" for="size--2xl">
+              <span class="visually-hidden">choose size </span>2XL
+            </label>
+          </div>
+        </fieldset>
 
-            <fieldset class="fieldset product__fieldset">
-              <legend class="product__input-title">Color<span aria-hidden="true"> - White</span></legend>
-              <div class="product__input-container">
+        <fieldset class="fieldset product__fieldset">
+          <legend class="product__input-title">Color<span aria-hidden="true"> - White</span></legend>
+          <div class="product__input-container">
+            <input
+              class="product__input-radio visually-hidden"
+              type="radio"
+              id="color--white"
+              name="color"
+              value="white"
+              checked
+            >
+            <label class="product__input-label product__input-label--color" for="color--white" title="White">
+              <span class="product__color product__color--white"></span>
+              <span class="visually-hidden">choose color white</span>
+            </label>
 
-                <input class="product__input-radio visually-hidden" type="radio" id="color--white" name="color"
-                  value="white" checked>
-                <label class="product__input-label product__input-label--color" for="color--white" title="White">
-                  <span class="product__color product__color--white"></span>
-                  <span class="visually-hidden">choose color white</span>
-                </label>
+            <input
+              class="product__input-radio visually-hidden"
+              type="radio"
+              id="color--black"
+              name="color"
+              value="black"
+            >
+            <label class="product__input-label product__input-label--color" for="color--black" title="Black">
+              <span class="product__color product__color--black"></span>
+              <span class="visually-hidden">choose color black</span>
+            </label>
 
-                <input class="product__input-radio visually-hidden" type="radio" id="color--black" name="color"
-                  value="black">
-                <label class="product__input-label product__input-label--color" for="color--black" title="Black">
-                  <span class="product__color product__color--black"></span>
-                  <span class="visually-hidden">choose color black</span>
-                </label>
+            <input
+              class="product__input-radio visually-hidden"
+              type="radio"
+              id="color--gray"
+              name="color"
+              value="gray"
+            >
+            <label class="product__input-label product__input-label--color" for="color--gray" title="Gray">
+              <span class="product__color product__color--gray"></span>
+              <span class="visually-hidden">choose color gray</span>
+            </label>
 
-                <input class="product__input-radio visually-hidden" type="radio" id="color--gray" name="color"
-                  value="gray">
-                <label class="product__input-label product__input-label--color" for="color--gray" title="Gray">
-                  <span class="product__color product__color--gray"></span>
-                  <span class="visually-hidden">choose color gray</span>
-                </label>
+            <input
+              class="product__input-radio visually-hidden"
+              type="radio"
+              id="color--purple-latte"
+              name="color"
+              value="purple latte"
+            >
+            <label
+              class="product__input-label product__input-label--color"
+              for="color--purple-latte"
+              title="Purple latte"
+            >
+              <span class="product__color product__color--purple-latte"></span>
+              <span class="visually-hidden">choose color purple latte</span>
+            </label>
 
-                <input class="product__input-radio visually-hidden" type="radio" id="color--purple-latte" name="color"
-                  value="purple latte">
-                <label class="product__input-label product__input-label--color" for="color--purple-latte"
-                  title="Purple latte">
-                  <span class="product__color product__color--purple-latte"></span>
-                  <span class="visually-hidden">choose color purple latte</span>
-                </label>
+            <input
+              class="product__input-radio product__input-radio--color visually-hidden"
+              type="radio"
+              id="color--red"
+              name="color"
+              value="red"
+              disabled
+            >
+            <label class="product__input-label product__input-label--color" for="color--red" title="Red">
+              <span class="product__color product__color--red"></span>
+              <span class="visually-hidden">choose color red</span>
+            </label>
 
-                <input class="product__input-radio product__input-radio--color visually-hidden" type="radio"
-                  id="color--red" name="color" value="red" disabled>
-                <label class="product__input-label product__input-label--color" for="color--red" title="Red">
-                  <span class="product__color product__color--red"></span>
-                  <span class="visually-hidden">choose color red</span>
-                </label>
+            <input
+              class="product__input-radio product__input-radio--color visually-hidden"
+              type="radio"
+              id="color--orange"
+              name="color"
+              value="orange"
+              disabled
+            >
+            <label class="product__input-label product__input-label--color" for="color--orange" title="Orange">
+              <span class="product__color product__color--orange"></span>
+              <span class="visually-hidden">choose color orange</span>
+            </label>
+          </div>
+        </fieldset>
 
-                <input class="product__input-radio product__input-radio--color visually-hidden" type="radio"
-                  id="color--orange" name="color" value="orange" disabled>
-                <label class="product__input-label product__input-label--color" for="color--orange" title="Orange">
-                  <span class="product__color product__color--orange"></span>
-                  <span class="visually-hidden">choose color orange</span>
-                </label>
-              </div>
-            </fieldset>
+        <fieldset class="fieldset product__fieldset product__fieldset--last">
+          <legend class="product__input-title product__input-title--quantity">
+            <label for="quantity">Quantity</label>
+          </legend>
 
-            <fieldset class="fieldset product__fieldset product__fieldset--last">
-              <legend class="product__input-title product__input-title--quantity">
-                <label for="quantity">Quantity</label>
-              </legend>
+          <div class="product__quantity">
+            <input
+              class="product__quantity-input"
+              type="number"
+              id="quantity"
+              value="1"
+              min="1"
+              max="999"
+              name="quantity"
+            >
 
-              <div class="product__quantity">
-                <input class="product__quantity-input" type="number" id="quantity" value="1" min="1" max="999"
-                  name="quantity">
+            <button class="product__quantity-button product__quantity-button--decrease" type="button">
+              <span class="visually-hidden">Decrease quantity</span>
+            </button>
 
-                <button class="product__quantity-button product__quantity-button--decrease" type="button">
-                  <span class="visually-hidden">Decrease quantity</span>
-                </button>
+            <button class="product__quantity-button product__quantity-button--increase" type="button">
+              <span class="visually-hidden">Increase quantity</span>
+            </button>
+          </div>
+        </fieldset>
 
-                <button class="product__quantity-button product__quantity-button--increase" type="button">
-                  <span class="visually-hidden">Increase quantity</span>
-                </button>
-              </div>
-            </fieldset>
-
-
-            <div class="product__button-container">
-              <button class="button button--add" type="submit" name="type" value="add">
-                <span>add <span class="visually-hidden">White unisex t-shirt</span> to cart</span>
-              </button>
-              <button class="button button--buy" type="submit" name="type" value="buy">
-                <span>buy <span class="visually-hidden">White unisex t-shirt</span> it now</span>
-              </button>
-            </div>
-          </form>
-
-          <p class="product__description">
-            A unisex basic garment with a loose fit. Light and comfortable to your skin.
-          </p>
-          <p class="product__description product__description--last">
-            Certification of cotton - GOTS
-          </p>
-
+        <div class="product__button-container">
+          <button class="button button--add" type="submit" name="type" value="add">
+            <span>add <span class="visually-hidden">White unisex t-shirt</span> to cart</span>
+          </button>
+          <button class="button button--buy" type="submit" name="type" value="buy">
+            <span>buy <span class="visually-hidden">White unisex t-shirt</span> it now</span>
+          </button>
         </div>
+      </form>
 
-        <img class="product__image" src="{{ product.featured_image | image_url }}" alt="" role="presentation">
-
-      </section>
-
-      <section class="product__additional">
-        <details class="product__additional-topic" open>
-          <summary class="product__additional-title">Sizing & Fit</summary>
-          <p class="product__additional-text">Olga is 175cm, she is wearing a size S.</p>
-        </details>
-
-        <details class="product__additional-topic">
-          <summary class="product__additional-title">Composition & Care</summary>
-        </details>
-
-        <details class="product__additional-topic">
-          <summary class="product__additional-title">Delivery & Returns</summary>
-        </details>
-      </section>
+      <p class="product__description">A unisex basic garment with a loose fit. Light and comfortable to your skin.</p>
+      <p class="product__description product__description--last">Certification of cotton - GOTS</p>
     </div>
 
+    <img class="product__image" src="{{ product.featured_image | image_url }}" alt="" role="presentation">
+  </section>
+
+  {% comment %}
+    <section class="product__additional">
+      <details class="product__additional-topic" open>
+        <summary class="product__additional-title">Sizing & Fit</summary>
+        <p class="product__additional-text">Olga is 175cm, she is wearing a size S.</p>
+      </details>
+
+      <details class="product__additional-topic">
+        <summary class="product__additional-title">Composition & Care</summary>
+      </details>
+
+      <details class="product__additional-topic">
+        <summary class="product__additional-title">Delivery & Returns</summary>
+      </details>
+    </section>
+  {% endcomment %}
+
+  <section class="product__additional accordion">
+    <div class="product__additional-topic">
+      <h2 class="heading">
+        <button
+          class="product__additional-title accordion__button"
+          id="accordion__button--1"
+          aria-expanded="true"
+          aria-controls="accordion__section--1"
+        >
+          Sizing &amp; Fit
+        </button>
+      </h2>
+      <p class="product__additional-text" id="accordion__section--1" aria-labelledby="accordion__button--1">
+        Olga is 175cm, she is wearing a size S.
+      </p>
+    </div>
+    <div class="product__additional-topic">
+      <h2 class="heading">
+        <button
+          class="product__additional-title accordion__button"
+          id="accordion__button--2"
+          aria-expanded="false"
+          aria-controls="accordion__section--2"
+        >
+          Composition &amp; Care
+        </button>
+      </h2>
+      <p
+        class="product__additional-text"
+        id="accordion__section--2"
+        hidden=""
+        aria-labelledby="accordion__button--2"
+      >
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Hic, nemo.
+      </p>
+    </div>
+    <div class="product__additional-topic">
+      <h2 class="heading">
+        <button
+          class="product__additional-title accordion__button"
+          id="accordion__button--3"
+          aria-expanded="false"
+          aria-controls="accordion__section--3"
+        >
+          Delivery &amp; Returns
+        </button>
+      </h2>
+      <p
+        class="product__additional-text"
+        id="accordion__section--3"
+        hidden=""
+        aria-labelledby="accordion__button--3"
+      >
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi tenetur alias corrupti id hic amet?
+      </p>
+    </div>
+  </section>
+</div>
 
 {% schema %}
-  {
-    "name": "alternate-main-product",
-    "templates": ["product"],
-    "limit": 1,
-    "settings": [],
-    "blocks": [
-      {
-        "name": "Accordeon",
-       "type": "accordeon",
-        "settings": [
-          {
-            "type": "text",
-            "id": "footer_heading",
-            "label": "Heading",
-            "default": "Quick links"
-          },
-           {
-            "type": "richtext",
-            "id": "paragraph",
-            "label": "Paragraph"
-            }
-        ]
-      }
-    ],
-    "presets":[
-      {
-        "name": "alternate-main-product"
-      }
-    ]    
-  }
+{
+  "name": "alternate-main-product",
+  "templates": ["product"],
+  "limit": 1,
+  "settings": [],
+  "blocks": [
+    {
+      "name": "Accordeon",
+      "type": "accordeon",
+      "settings": [
+        {
+          "type": "text",
+          "id": "footer_heading",
+          "label": "Heading",
+          "default": "Quick links"
+        },
+        {
+          "type": "richtext",
+          "id": "paragraph",
+          "label": "Paragraph"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "alternate-main-product"
+    }
+  ]
+}
 {% endschema %}
 
 {% stylesheet %}
