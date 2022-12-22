@@ -184,7 +184,7 @@
     <img class="product__image" src="{{ product.featured_image | image_url }}" alt="" role="presentation">
   </section>
 
-  {%- assign accordions = section.blocks | where: 'type', 'accordion' -%}
+  {%- assign accordions = section.blocks | where: 'type', 'accordeon' -%}
   {%- if accordions.size > 0 -%}
     <section class="product__additional accordion">
       {% for block in accordions %}
@@ -207,62 +207,6 @@
       {% endfor %}
     </section>
   {%- endif -%}
-  {% comment %}
-    <div class="product__additional-topic">
-      <h2 class="heading">
-        <button
-          class="product__additional-title accordion__button"
-          id="accordion__button--1"
-          aria-controls="accordion__section--1"
-        >
-          Sizing &amp; Fit
-        </button>
-      </h2>
-      <p class="product__additional-text" id="accordion__section--1" aria-labelledby="accordion__button--1">
-        Olga is 175cm, she is wearing a size S.
-      </p>
-    </div>
-    <div class="product__additional-topic">
-      <h2 class="heading">
-        <button
-          class="product__additional-title accordion__button"
-          id="accordion__button--2"
-          aria-expanded="false"
-          aria-controls="accordion__section--2"
-        >
-          Composition &amp; Care
-        </button>
-      </h2>
-      <p
-        class="product__additional-text"
-        id="accordion__section--2"
-        hidden=""
-        aria-labelledby="accordion__button--2"
-      >
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Hic, nemo.
-      </p>
-    </div>
-    <div class="product__additional-topic">
-      <h2 class="heading">
-        <button
-          class="product__additional-title accordion__button"
-          id="accordion__button--3"
-          aria-expanded="false"
-          aria-controls="accordion__section--3"
-        >
-          Delivery &amp; Returns
-        </button>
-      </h2>
-      <p
-        class="product__additional-text"
-        id="accordion__section--3"
-        hidden=""
-        aria-labelledby="accordion__button--3"
-      >
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi tenetur alias corrupti id hic amet?
-      </p>
-    </div>
-  {% endcomment %}
 </div>
 
 {% schema %}
@@ -279,7 +223,8 @@
         {
           "type": "text",
           "id": "title",
-          "label": "Title"
+          "label": "Title",
+          "default": "Sizing & Fit"
         },
         {
           "type": "richtext",

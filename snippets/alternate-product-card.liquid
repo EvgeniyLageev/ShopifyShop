@@ -1,0 +1,50 @@
+<li>
+  <article class="product-card">
+    <img
+      class="product-card__image"
+      src="{{ product.featured_image | image_url }}"
+      alt=""
+      role="presentation"
+      width="248"
+      height="368"
+    >
+    <h3 class="heading product-card__heading heading--md">
+      <a class="link" href="{{ product.url }}">{{ product.title }}</a>
+    </h3>
+
+    <div class="product-card__colors-wrapper">
+      <ul class="product-card__colors list" role="list">
+        <li class="product-card__colors-item">
+          <div class="product-card__colors-bg product-card__colors-bg--brass"></div>
+          <span class="visually-hidden">{{ product.title }} color: Antique Brass</span>
+        </li>
+        <li class="product-card__colors-item">
+          <div class="product-card__colors-bg product-card__colors-bg--peach"></div>
+          <span class="visually-hidden">{{ product.title }} color: Apricot Peach</span>
+        </li>
+        <li class="product-card__colors-item">
+          <div class="product-card__colors-bg product-card__colors-bg--pink"></div>
+          <span class="visually-hidden">{{ product.title }} color: Sea Pink</span>
+        </li>
+        <li class="product-card__colors-item">
+          <div class="product-card__colors-bg product-card__colors-bg--lavender"></div>
+          <span class="visually-hidden">{{ product.title }} color: Dull Lavender</span>
+        </li>
+      </ul>
+    </div>
+
+    <p class="product-card__code">
+      {{ shop.currency }}
+      {{ product.price | money_without_trailing_zeros }}
+    </p>
+
+    {%- unless product.available -%}
+      <ul
+        class="list"
+        role="list"
+      >
+        <li class="tag tag--sold-out">Sold out</li>
+      </ul>
+    {%- endunless -%}
+  </article>
+</li>
