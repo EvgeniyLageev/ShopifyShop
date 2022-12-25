@@ -1,53 +1,62 @@
 <header class="page__header header">
-    <a class="skip-to" href="#main">Skip to main content</a>
-    <div class="header__wrapper container">
-      <nav class="header__main-menu main-menu" aria-label="Main Menu">
-        <ul class="main-menu__list list" role="list">
-          <li><a class="link" href="/women">Women</a></li>
-          <li><a class="link" href="/men">Men</a></li>
-          <li><a class=" link" href="/kids">Kids</a></li>
-          <li><a class="link" href="/company">Company</a></li>
-        </ul>
-      </nav>
-      <a class="link header__logo link--disabled" href="/">
-        <span class="visually-hidden">Homepage</span>
-        <img src="https://res.cloudinary.com/dp76j19hl/image/upload/v1670274849/logo_ycx9bf.svg" alt="" role="presentation">
-      </a>
-      <nav class="header__main-menu main-menu" aria-label="Account Menu">
-        <ul class="main-menu__list list" role="list">
-          <li><a class="link" href="/account">Account</a></li>
-          <li><a class="link" href="/search">Search</a></li>
+  <a class="skip-to" href="#main">Skip to main content</a>
+  <div class="header__wrapper container">
+    <nav class="header__main-menu main-menu" aria-label="Main Menu">
+      <ul class="main-menu__list list" role="list">
+        {%- for link in section.settings.menu.links -%}
           <li>
-            <a class="link" href="/cart">
-              <span class="main-menu__counter" aria-hidden="true">Cart (<span data-cart-quantity
-                  aria-live="polite">0</span>)</span>
-              <span class="visually-hidden">Cart has <span data-cart-quantity aria-live="polite">0</span> items</span>
-            </a>
+            <a class="link" href="{{ link.url }}">{{ link.title }}</a>
           </li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+        {%- endfor -%}
+      </ul>
+    </nav>
+    <a class="link header__logo link--disabled" href="/">
+      <span class="visually-hidden">Homepage</span>
 
-
-
+      {% if section.settings.logo_image %}
+        <img
+          src="{{ section.settings.logo_image | image_url }}"
+          alt=""
+          role="presentation"
+          width="139"
+          height="32"
+          loading="lazy"
+        >
+      {% else %}
+        <p>{{ shop.name }}</p>
+      {% endif %}
+    </a>
+    <nav class="header__main-menu main-menu" aria-label="Account Menu">
+      <ul class="main-menu__list list" role="list">
+        <li><a class="link" href="{{ routes.account_addresses_url }}">Account</a></li>
+        <li><a class="link" href="{{ routes.search_url }}">Search</a></li>
+        <li>
+          <a class="link" href="/cart">
+            <span class="main-menu__counter" aria-hidden="true">Cart ({{ cart.item_count }}</span>)
+            <span class="visually-hidden" aria-live="polite">Cart has {{ cart.item_count }} items</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
 
 {% schema %}
-  {
-    "name": "alternate-header",
-    "settings": [
-      {
-        "type": "image_picker",
-        "id": "image_with_text_image",
-        "label": "Image"
-      },
-      {
-        "type": "link_list",
-        "id": "menu",
-        "label": "Menu"
-      }
-    ]
-  }
+{
+  "name": "alternate-header",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "logo_image",
+      "label": "Image"
+    },
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Menu"
+    }
+  ]
+}
 {% endschema %}
 
 {% stylesheet %}

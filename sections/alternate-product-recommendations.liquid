@@ -1,160 +1,47 @@
-
 <section class="product-preview">
+  <h2 class="heading product-preview__heading heading--lg heading--blue">{{ section.settings.heading }}</h2>
 
-      <h2 class="heading product-preview__heading heading--lg heading--blue">You may also like</h2>
-
-      <ul class="list product-preview__list">
-
-        <li>
-          <article class="product-card">
-            <img class="product-card__image" src="https://res.cloudinary.com/dp76j19hl/image/upload/v1670274849/main_article-item1_nvvhnv.png" alt="">
-            <h3 class="heading product-card__heading heading--md"><a class="link" href="">Product name</a></h3>
-            <div class="product-card__colors-wrapper">
-              <ul class="product-card__colors list" role="list">
-                <li class="product-card__colors-item">
-                  <div class="product-card__colors-bg product-card__colors-bg--brass"></div>
-                  <span class="visually-hidden">Antique Brass</span>
-                </li>
-                <li class="product-card__colors-item">
-                  <div class="product-card__colors-bg product-card__colors-bg--peach"></div>
-                  <span class="visually-hidden">Apricot Peach</span>
-                </li>
-                <li class="product-card__colors-item">
-                  <div class="product-card__colors-bg product-card__colors-bg--pink"></div>
-                  <span class="visually-hidden">Sea Pink</span>
-                </li>
-                <li class="product-card__colors-item">
-                  <div class="product-card__colors-bg product-card__colors-bg--lavender"></div>
-                  <span class="visually-hidden">Dull Lavender</span>
-                </li>
-              </ul>
-            </div>
-            <p class="product-card__code">CHF 40</p>
-          </article>
-        </li>
-
-        <li>
-          <article class="product-card">
-            <img class="product-card__image" src="https://res.cloudinary.com/dp76j19hl/image/upload/v1670274849/main_article-item2_bmnnsw.png" alt="">
-            <h3 class="heading product-card__heading heading--md"><a class="link" href="">Product name</a></h3>
-            <div class="product-card__colors-wrapper">
-              <ul class="product-card__colors list" role="list">
-                <li class="product-card__colors-item">
-                  <div class="product-card__colors-bg" style="background-color: #C88252"></div>
-                  <span class="visually-hidden">Antique Brass</span>
-                </li>
-                <li class="product-card__colors-item">
-                  <div class="product-card__colors-bg" style="background-color: #F8CAB1"></div>
-                  <span class="visually-hidden">Apricot Peach</span>
-                </li>
-                <li class="product-card__colors-item">
-                  <div class="product-card__colors-bg" style="background-color: #E9A0A7"></div>
-                  <span class="visually-hidden">Sea Pink</span>
-                </li>
-                <li class="product-card__colors-item">
-                  <div class="product-card__colors-bg" style="background-color: #BA9BE6"></div>
-                  <span class="visually-hidden">Dull Lavender</span>
-                </li>
-              </ul>
-            </div>
-            <p class="product-card__code">CHF 40</p>
-          </article>
-        </li>
-
-        <li>
-          <article class="product-card">
-            <img class="product-card__image" src="https://res.cloudinary.com/dp76j19hl/image/upload/v1670274850/main_article-item3_u7ossv.png" alt="">
-            <h3 class="heading product-card__heading heading--md"><a class="link" href="">Product name</a></h3>
-            <div class="product-card__colors-wrapper">
-              <ul class="product-card__colors list" role="list">
-                <li class="product-card__colors-item">
-                  <div class="product-card__colors-bg" style="background-color: #C88252"></div>
-                  <span class="visually-hidden">Antique Brass</span>
-                </li>
-                <li class="product-card__colors-item">
-                  <div class="product-card__colors-bg" style="background-color: #F8CAB1"></div>
-                  <span class="visually-hidden">Apricot Peach</span>
-                </li>
-                <li class="product-card__colors-item">
-                  <div class="product-card__colors-bg" style="background-color: #E9A0A7"></div>
-                  <span class="visually-hidden">Sea Pink</span>
-                </li>
-                <li class="product-card__colors-item">
-                  <div class="product-card__colors-bg" style="background-color: #BA9BE6"></div>
-                  <span class="visually-hidden">Dull Lavender</span>
-                </li>
-              </ul>
-            </div>
-            <p class="product-card__code">CHF 40</p>
-            <div class="tag tag--sold-out">Sold out</div>
-          </article>
-        </li>
-
-        <li>
-          <article class="product-card">
-            <img class="product-card__image" src="https://res.cloudinary.com/dp76j19hl/image/upload/v1670274850/main_article-item4_ufktg2.png" alt="">
-            <h3 class="heading product-card__heading heading--md"><a class="link" href="">Product name</a></h3>
-            <div class="product-card__colors-wrapper">
-              <ul class="product-card__colors list" role="list">
-                <li class="product-card__colors-item">
-                  <div class="product-card__colors-bg" style="background-color: #C88252"></div>
-                  <span class="visually-hidden">Antique Brass</span>
-                </li>
-                <li class="product-card__colors-item">
-                  <div class="product-card__colors-bg" style="background-color: #F8CAB1"></div>
-                  <span class="visually-hidden">Apricot Peach</span>
-                </li>
-                <li class="product-card__colors-item">
-                  <div class="product-card__colors-bg" style="background-color: #E9A0A7"></div>
-                  <span class="visually-hidden">Sea Pink</span>
-                </li>
-                <li class="product-card__colors-item">
-                  <div class="product-card__colors-bg" style="background-color: #BA9BE6"></div>
-                  <span class="visually-hidden">Dull Lavender</span>
-                </li>
-              </ul>
-            </div>
-            <p class="product-card__code">CHF 40</p>
-          </article>
-        </li>
-      </ul>
-
-    </section>
-
-
+  {%- assign collection = section.settings.collection -%}
+  {%- if collection.all_products_count > 0 -%}
+    <ul class="list product-preview__list">
+      {%- for product in collection.products limit: section.settings.number_of_products -%}
+        {%- render 'alternate-product-card', product: product -%}
+      {%- endfor -%}
+    </ul>
+  {%- endif -%}
+</section>
 
 {% schema %}
-  {
-    "name": "alt-product-rec",
-    "settings": [
-      {
-  "type": "text",
-  "id": "footer_linklist_title",
-  "label": "Heading",
-  "default": "Quick links"
-},
-      {
-  "type": "collection",
-  "id": "collection",
-  "label": "Collection"
-},
-      {
-  "type": "range",
-  "id": "product_visible",
-  "min": 3,
-  "max": 6,
-  "step": 1,
-  "unit": "px",
-  "label": "Product visible",
-  "default": 3
+{
+  "name": "alt-product-rec",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "You may also like"
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection"
+    },
+    {
+      "type": "range",
+      "id": "number_of_products",
+      "min": 3,
+      "max": 6,
+      "step": 1,
+      "label": "Number of products",
+      "default": 4
+    }
+  ],
+  "presets": [
+    {
+      "name": "alt-product-rec"
+    }
+  ]
 }
-    ],
-    "presets": [
-      {
-        "name": "alt-product-rec"
-      }
-    ]
-  }
 {% endschema %}
 
 {% stylesheet %}

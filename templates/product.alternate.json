@@ -4,16 +4,16 @@
     "bacb6636-ff65-4a8f-a84a-bedcf9993577": {
       "type": "alternate-main-product",
       "blocks": {
-        "23021f20-a93f-4234-ab7d-392e5af770cd": {
+        "843ca731-51d0-408b-b2fd-39a8611019e8": {
           "type": "accordeon",
           "settings": {
-            "footer_heading": "Quick links",
-            "paragraph": ""
+            "title": "Sizing & Fit",
+            "text": ""
           }
         }
       },
       "block_order": [
-        "23021f20-a93f-4234-ab7d-392e5af770cd"
+        "843ca731-51d0-408b-b2fd-39a8611019e8"
       ],
       "settings": {
       }
@@ -21,9 +21,9 @@
     "6d28f1a5-17be-42be-ab8a-f7294766aa37": {
       "type": "alternate-product-recommendations",
       "settings": {
-        "footer_linklist_title": "Quick links",
-        "collection": "",
-        "product_visible": 3
+        "heading": "You may also like",
+        "collection": "wool-figures",
+        "number_of_products": 4
       }
     }
   },

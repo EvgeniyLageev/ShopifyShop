@@ -1,0 +1,12 @@
+<div>
+  <h2 class="footer__heading heading heading--s">{{ heading }}</h2>
+  <nav>
+    <ul class="list footer__list" role="list">
+      {%- for link in link_list.links -%}
+        <li>
+          <a class="link footer__link" href="{{ link.url }}">{{ link.title }}</a>
+        </li>
+      {%- endfor -%}
+    </ul>
+  </nav>
+</div>

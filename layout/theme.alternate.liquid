@@ -1,31 +1,21 @@
 <!doctype html>
 <html lang="{{ request.locale.iso_code }}">
   <head>
-
-    <link rel="stylesheet" href="{{ 'style.css' | asset_url }}">
-
-    {{content_for_header}}
-
+    {{ 'style.css' | asset_url | stylesheet_tag }}
+    {{ content_for_header }}
   </head>
 
   <body class="page">
+    {% section 'alternate-header' %}
 
-    
-    
-      {% section "alternate-header" %}
+    {% render 'alternate-breadcrumbs' %}
 
-      {% render "alternate-breadcrumbs" %}
+    <main class="page__main main container" id="main">
+      {{ content_for_layout }}
+    </main>
 
-     <main class="page__main main container" id="main">
+    {% section 'alternate-footer' %}
 
-  {{ content_for_layout }}
-
-         </main>
-
-      {% section "alternate-footer" %}
-
-
-    
-      
+    <script src="{{ 'index.js' | asset_url }}" async></script>
   </body>
 </html>

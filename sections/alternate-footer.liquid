@@ -1,103 +1,79 @@
 <footer class="footer page__footer">
-    <div class="footer__container container">
-      <div>
-        <h2 class="footer__heading heading heading--s">About</h2>
-        <a class="link footer__link" href="/">Susparsa Store</a>
-        <address class="footer__adress">Geneva, Switzerland
-          <ul class="footer__list--address list">
-            <li><a class="link link--disabled" href="https://www.facebook.com/" target="_blank"><img
-                  src="/assets/img/facebook_logo.svg" alt=""></a>
-            </li>
-            <li><a class="link link--disabled" href="https://www.instagram.com/" target="_blank"><img src="/assets/img/insta_logo.svg"
-                  alt=""></a>
-            </li>
-          </ul>
-        </address>
-      </div>
-      <div>
-        <h2 class="footer__heading heading heading--s">Company</h2>
-        <nav>
-          <ul class="list footer__list">
-            <li><a class="link footer__link" href="#">Women</a></li>
-            <li><a class="link footer__link" href="#">Men</a></li>
-            <li><a class="link footer__link" href="#">Kids</a></li>
-            <li><a class="link footer__link" href="#">About Us</a></li>
-            <li><a class="link footer__link" href="#">Our Materials</a></li>
-          </ul>
-        </nav>
-      </div>
-      <div>
-        <h2 class="footer__heading heading heading--s">Useful Links</h2>
-        <nav>
-          <ul class="list footer__list">
-            <li><a class="link footer__link" href="#">Privacy Policy</a></li>
-            <li><a class="link footer__link" href="#">Shipping Policy</a></li>
-            <li><a class="link footer__link" href="#">Return & Refund Policy</a></li>
-            <li><a class="link footer__link" href="#">Terms of Service</a></li>
-            <li><a class="link footer__link" href="#">Contact Us</a></li>
-          </ul>
-        </nav>
-      </div>
-    </div>
-    <small class="text">&copy; Susparsa 2021</small>
-
-  </footer>
-
-
-
+  <div class="footer__container container">
+    {%- if section.blocks.size > 0 -%}
+      {%- for block in section.blocks -%}
+        {%- case block.type -%}
+          {%- when 'about' -%}
+            {%- render 'alternate-footer-about',
+              heading: block.settings.heading,
+              text: block.settings.text,
+              facebook_link: block.settings.facebook_link,
+              instagram_link: block.settings.instagram_link,
+              copyright: block.settings.copyright
+            -%}
+          {%- when 'menu' -%}
+            {%- render 'alternate-footer-menu', heading: block.settings.heading, link_list: block.settings.link_list -%}
+        {%- endcase -%}
+      {%- endfor -%}
+    {%- endif -%}
+  </div>
+  <small class="text">© Susparsa 2022</small>
+</footer>
 
 {% schema %}
-  {
-    "name": "alternate-footer",
-    "settings": [],
-    "max_blocks": 4,
-    "blocks": [
-     {
-       "name": "About",
-       "type": "about",
-       "settings": [
-           {
-            "type": "text",
-            "id": "footer_heading",
-            "label": "Heading",
-            "default": "Quick links"
-          },
-           {
-            "type": "richtext",
-            "id": "paragraph",
-            "label": "Paragraph"
-            },
-         {
-            "type": "text",
-            "id": "footer_linkFB",
-            "label": "Facebook links"
-          },
-         {
-            "type": "text",
-            "id": "footer_linkInst",
-            "label": "Instagram links"
-          }
-       ]
-     },
-       {
-       "name": "Menu",
-       "type": "menu",
-       "settings": [
-           {
-            "type": "text",
-            "id": "footer_heading",
-            "label": "Heading",
-            "default": "Quick links"
-          },
-           {
-        "type": "link_list",
-        "id": "menu",
-        "label": "Menu"
-      }
-       ]
-         }
+{
+  "name": "alternate-footer",
+  "settings": [],
+  "max_blocks": 4,
+  "blocks": [
+    {
+      "name": "About",
+      "type": "about",
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "About"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "text"
+        },
+        {
+          "type": "text",
+          "id": "facebook_link",
+          "label": "facebook_link",
+          "default": "Facebook"
+        },
+        {
+          "type": "text",
+          "id": "instagram_link",
+          "label": "instagram_link",
+          "default": "Instagram"
+        }
+      ]
+    },
+    {
+      "name": "Menu",
+      "type": "menu",
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "Useful links"
+        },
+        {
+          "type": "link_list",
+          "id": "link_list",
+          "label": "Menu"
+        }
+      ]
+    }
   ]
-  }
+}
 {% endschema %}
 
 {% stylesheet %}

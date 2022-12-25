@@ -1,8 +1,16 @@
-     <nav class="main__breadcrumb breadcrumb" aria-label="Breadcrumbs">
-      <ol class="list" role="list">
-        <li class="breadcrumb__item"><a class="link" href="/">Home</a></li>
-        <li class="breadcrumb__item"><a class="link" href="#">Women</a></li>
-        <li class="breadcrumb__item"><a class="link link--disabled">White unisex
-            t-shirt</a></li>
-      </ol>
-    </nav>
+<nav class="main__breadcrumb breadcrumb" aria-label="Breadcrumbs">
+  <ol class="list" role="list">
+    <li class="breadcrumb__item">
+      <a class="link" href="{{ routes.root_url }}">Home</a>
+    </li>
+
+    {% if product.collections.size > 0 %}
+      <li class="breadcrumb__item">
+        <a class="link" href="{{ product.collections[0].url }}">{{ product.collections[0].title }}</a>
+      </li>
+    {% endif %}
+    <li class="breadcrumb__item">
+      <a class="link link--disabled">{{ product.title }}</a>
+    </li>
+  </ol>
+</nav>
