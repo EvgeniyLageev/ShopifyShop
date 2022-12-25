@@ -181,7 +181,13 @@
       {% endif %}
     </div>
 
-    <img class="product__image" src="{{ product.featured_image | image_url }}" alt="" role="presentation">
+    <img
+      class="product__image"
+      src="{{ product.featured_image | image_url: width: 473 }}"
+      alt=""
+      role="presentation"
+      loadinf="lazy"
+    >
   </section>
 
   {%- assign accordions = section.blocks | where: 'type', 'accordeon' -%}
