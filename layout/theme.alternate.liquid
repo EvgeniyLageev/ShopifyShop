@@ -16,6 +16,6 @@
 
     {% section 'alternate-footer' %}
 
-    {{ 'index.js' | asset_url | script_tag }}
+    <script src="{{ 'index.js' | asset_url }}" async></script>
   </body>
 </html>

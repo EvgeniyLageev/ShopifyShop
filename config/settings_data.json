@@ -195,18 +195,13 @@
       "alternate-header": {
         "type": "alternate-header",
         "settings": {
-<<<<<<< HEAD
           "logo_image": "shopify:\/\/shop_images\/logo.png",
           "menu": "main"
-=======
-          "menu": ""
->>>>>>> aeeb21cb3de293cf97603368034474228c65698c
         }
       },
       "alternate-footer": {
         "type": "alternate-footer",
         "blocks": {
-<<<<<<< HEAD
           "4dd17cc9-e6c5-4a6a-9a01-1791500208ed": {
             "type": "about",
             "settings": {
@@ -228,26 +223,13 @@
             "settings": {
               "heading": "Useful links",
               "link_list": "footer_useful"
-=======
-          "8152a71f-3dec-4824-91af-41849821c96a": {
-            "type": "about",
-            "settings": {
-              "footer_heading": "About",
-              "paragraph": "<p>Susparsa<\/p>",
-              "footer_linkFB": "facebook.com",
-              "footer_linkInst": ""
->>>>>>> aeeb21cb3de293cf97603368034474228c65698c
             }
           }
         },
         "block_order": [
-<<<<<<< HEAD
           "4dd17cc9-e6c5-4a6a-9a01-1791500208ed",
           "b9b3b605-6c87-4cde-868c-56ee0516b853",
           "d67c9a8f-d083-4c25-b39c-8b89a7543136"
-=======
-          "8152a71f-3dec-4824-91af-41849821c96a"
->>>>>>> aeeb21cb3de293cf97603368034474228c65698c
         ],
         "settings": {
         }
