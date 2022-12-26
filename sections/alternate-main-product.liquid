@@ -1,3 +1,5 @@
+<script src="{{ 'alternate-main-product.js' | asset_url }}" type="module"></script>
+
 <div class="product main__product">
   <section class="product__product-card">
     <div class="product__info">
@@ -194,21 +196,30 @@
 
   {%- assign accordions = section.blocks | where: 'type', 'accordeon' -%}
   {%- if accordions.size > 0 -%}
-    <section class="product__additional accordion">
+    <section
+      class="product__additional accordion"
+      data-section-type="alternate-main-product"
+      data-section-id="{{ section.id }}"
+    >
       {% for block in accordions %}
-        <div class="product__additional-topic">
+        <div class="product__additional-topic" {{ block.shopify_attributes }}>
           <h2 class="heading" id="productInfo1">
             <button
               type="button"
-              aria-controls="description-{{ block.id }}"
+              aria-controls="description--{{ block.id }}"
               class="product__additional-title accordion__button"
               aria-expanded="false"
-              id="id-{{ block.id }}"
+              id="id--{{ block.id }}"
             >
               {{ block.settings.title }}
             </button>
           </h2>
-          <div class="product__additional-text" id="description-{{ block.id }}" aria-labelledby="id-{{ block.id }}">
+          <div
+            class="product__additional-text"
+            id="description--{{ block.id }}"
+            aria-labelledby="id--{{ block.id }}"
+            hidden
+          >
             {{ block.settings.text }}
           </div>
         </div>

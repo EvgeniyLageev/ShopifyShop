@@ -4,16 +4,32 @@
     "bacb6636-ff65-4a8f-a84a-bedcf9993577": {
       "type": "alternate-main-product",
       "blocks": {
-        "843ca731-51d0-408b-b2fd-39a8611019e8": {
+        "463fc9c1-86f1-4014-b280-301779389e7f": {
           "type": "accordeon",
           "settings": {
             "title": "Sizing & Fit",
-            "text": ""
+            "text": "<p>Аккордеон1<\/p>"
+          }
+        },
+        "b424d7b2-d583-4dfb-89b2-630342127e97": {
+          "type": "accordeon",
+          "settings": {
+            "title": "Sizing & Fit",
+            "text": "<p>Аккордеон2<\/p>"
+          }
+        },
+        "b9ad42d9-de6d-49ff-8190-8db8564d3768": {
+          "type": "accordeon",
+          "settings": {
+            "title": "Sizing & Fit",
+            "text": "<p>Аккордеон3<\/p>"
           }
         }
       },
       "block_order": [
-        "843ca731-51d0-408b-b2fd-39a8611019e8"
+        "463fc9c1-86f1-4014-b280-301779389e7f",
+        "b424d7b2-d583-4dfb-89b2-630342127e97",
+        "b9ad42d9-de6d-49ff-8190-8db8564d3768"
       ],
       "settings": {
       }

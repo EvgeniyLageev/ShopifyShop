@@ -6,6 +6,15 @@
   </head>
 
   <body class="page">
+    <script
+      src="https://unpkg.com/@shopify/theme-sections@4.1.1/dist/theme-sections.min.js"
+      defer
+    ></script>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', () => Shopify.theme.sections.load('*'));
+    </script>
+
     {% section 'alternate-header' %}
 
     {% render 'alternate-breadcrumbs' %}
@@ -15,7 +24,5 @@
     </main>
 
     {% section 'alternate-footer' %}
-
-    <script src="{{ 'index.js' | asset_url }}" async></script>
   </body>
 </html>
