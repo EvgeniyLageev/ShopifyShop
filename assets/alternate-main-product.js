@@ -1,43 +1,3 @@
-Shopify.theme.sections.register("alternate-main-product", {
-  accordions: {},
-
-  onLoad: function () {
-    const accordionButtons = document.querySelectorAll('.accordion__button');
-    for (let i = 0; i < accordionButtons.length; i++) {
-      const accordion = new Accordion(accordionButtons[i]);
-      this.accordions[accordion.id] = accordion;
-    }
-  },
-
-  onUnload: function () {
-    for (const accordion of Object.values(this.accordions)) {
-      accordion.destroy();
-    }
-  },
-
-  onSelect: function () {
-  },
-
-  onDeselect: function () {
-  },
-
-  onBlockSelect(evt) {
-
-    const button = evt.target.querySelector('.accordion__button');
-    const id = button.getAttribute('aria-controls').split('--').pop();
-    this.accordions[id].toggle();
-  },
-
-  onBlockDeselect(evt) {
-    const button = evt.target.querySelector('.accordion__button');
-    const id = button.getAttribute('aria-controls').split('--').pop();
-    this.accordions[id].toggle();
-  },
-});
-
-
-
-
 class Accordion {
   constructor(button) {
     this.button = button;
@@ -70,9 +30,81 @@ class Accordion {
   }
 }
 
-// document.addEventListener('DOMContentLoaded', () => {
-//   const accordions = document.querySelectorAll('.accordion__button');
-//   accordions.forEach((el) => {
-//     new Accordion(el);
-//   });
-// })
+
+
+const form = document.querySelector(".product__form")
+const errorMessage = document.querySelector(".form__error")
+form.addEventListener("submit", event => {
+  event.preventDefault()
+  fetch(event.target.action + ".js", {
+    method: event.target.method,
+    body: new FormData(event.target),
+    headers: {
+      "X-Requested-With": "XMLHttpRequest"
+    }
+  }).then(response => response.json())
+    .then((data) => {
+      console.log(data)
+      if (data.id) {
+        const event = new CustomEvent("cart:added", {
+          detail: {
+            updatedHeader: data.sections['alternate-header'],
+          },
+          bubles: true
+        })
+        window.dispatchEvent(event);
+      } else {
+        const message = `${data.message} (${data.status}): ${data.description}`;
+        throw new Error(message);
+      }
+    })
+    .catch(error => {
+      // console.log(error)
+      errorMessage.innerHTML = error
+    })
+})
+
+
+
+Shopify.theme.sections.register("alternate-main-product", {
+  accordions: {},
+
+  onLoad: function () {
+    const accordionButtons = document.querySelectorAll('.accordion__button');
+    accordionButtons.forEach((el) => {
+      this.accordions[new Accordion(el).id] = new Accordion(el);
+    });
+  },
+
+  onUnload: function () {
+    for (const accordion of Object.values(this.accordions)) {
+      accordion.destroy();
+    }
+  },
+
+  onSelect: function () {
+  },
+
+  onDeselect: function () {
+  },
+
+  onBlockSelect(evt) {
+    const button = evt.target.querySelector('.accordion__button');
+    const id = button.getAttribute('aria-controls').split('--').pop();
+    this.accordions[id].toggle();
+  },
+
+  onBlockDeselect(evt) {
+    const button = evt.target.querySelector('.accordion__button');
+    const id = button.getAttribute('aria-controls').split('--').pop();
+    this.accordions[id].toggle();
+  },
+});
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  const accordions = document.querySelectorAll('.accordion__button');
+  accordions.forEach((el) => {
+    new Accordion(el);
+  });
+})

@@ -7,11 +7,24 @@
       <p class="product__code">{{ product.price | money_with_currency }}</p>
       <p class="product__tax">Tax included</p>
 
-      <form>
+      {%- form 'product', product, class: 'product__form form', aria-lable: 'order details' -%}
         <fieldset class="fieldset product__fieldset">
           <legend class="product__input-title">Size</legend>
 
           <div class="product__input-container">
+            <input
+              class="product__input-radio visually-hidden"
+              type="hidden"
+              name="id"
+              value="{{- product.selected_or_first_available_variant.id -}}"
+            >
+            <input
+              class="product__input-radio visually-hidden"
+              type="hidden"
+              name="sections"
+              value="alternate-header"
+            >
+
             <input class="product__input-radio visually-hidden" type="radio" name="size" id="size--xs" value="xs">
             <label class="product__input-label" for="size--xs">
               <span class="visually-hidden">choose size </span>XS
@@ -172,11 +185,17 @@
           <button class="button button--add" type="submit" name="type" value="add">
             <span>add <span class="visually-hidden">White unisex t-shirt</span> to cart</span>
           </button>
+          <span
+            class="form__error"
+            aria-live="polite"
+            role="alert"
+          >
+          </span>
           <button class="button button--buy" type="submit" name="type" value="buy">
             <span>buy <span class="visually-hidden">White unisex t-shirt</span> it now</span>
           </button>
         </div>
-      </form>
+      {%- endform -%}
 
       {% if product.content %}
         <p class="product__description product__description--last">{{ product.description }}</p>

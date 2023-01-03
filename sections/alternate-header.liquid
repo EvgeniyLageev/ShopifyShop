@@ -1,4 +1,6 @@
-<header class="page__header header">
+<script src="{{ 'alternate-header.js' | asset_url }}" type="module"></script>
+
+<header class="page__header header" data-section-type="alternate-header" data-section-id="{{ section.id }}">
   <a class="skip-to" href="#main">Skip to main content</a>
   <div class="header__wrapper container">
     <nav class="header__main-menu main-menu" aria-label="Main Menu">
@@ -32,8 +34,8 @@
         <li><a class="link" href="{{ routes.search_url }}">Search</a></li>
         <li>
           <a class="link" href="/cart">
-            <span class="main-menu__counter" aria-hidden="true">Cart ({{ cart.item_count }}</span>)
-            <span class="visually-hidden" aria-live="polite">Cart has {{ cart.item_count }} items</span>
+            <span class="main-menu__counter" aria-hidden="true">Cart ({{ cart.item_count }})</span>
+            <span class="visually-hidden" aria-live="polite" role="status">Cart has {{ cart.item_count }} items</span>
           </a>
         </li>
       </ul>
