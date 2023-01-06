@@ -59,7 +59,7 @@ form.addEventListener("submit", event => {
       }
     })
     .catch(error => {
-      errorMessage.innerHTML = error
+      console.log(error)
     })
 })
 

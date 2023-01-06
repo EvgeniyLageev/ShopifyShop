@@ -332,6 +332,7 @@
   cursor: pointer;
   transition: all 0.2s ease;
   border: 0.0625rem solid var(--border-color);
+  text-transform: uppercase;
 }
 
 .product__input-label:hover {

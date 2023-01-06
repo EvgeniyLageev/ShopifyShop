@@ -6,152 +6,23 @@
       <p class="product__tax">Tax included</p>
 
       {%- form 'product', product, class: 'product__form form', aria-lable: 'order details' -%}
-        <fieldset class="fieldset product__fieldset">
-          <legend class="product__input-title">Size</legend>
 
+        {%- for option in product.options_with_values -%}
+        <fieldset class="fieldset product__fieldset product__fieldset--{{ option.name | downcase }}">
+          <legend class="product__input-title">{{ option.name }} {% if option.name == 'Color' %}- <span></span>{% endif %}</legend>
           <div class="product__input-container">
-            <input
-              class="product__input-radio visually-hidden"
-              type="hidden"
-              name="id"
-              value="{{- product.selected_or_first_available_variant.id -}}"
-            >
-            <input
-              class="product__input-radio visually-hidden"
-              type="hidden"
-              name="sections"
-              value="alternate-header"
-            >
+          {%- for value in option.values -%}
+            {%- case option.name -%}
+              {%- when 'Size' -%}
+                {%- render 'alternate-radio-input--size', option: option, value: value -%}
+              {%- when 'Color' -%}
+                {%- render 'alternate-radio-input--color', option: option, value: value -%}
+              {%- endcase -%}
+          {%- endfor -%}
+         </div>
 
-            <input class="product__input-radio visually-hidden" type="radio" name="size" id="size--xs" value="xs">
-            <label class="product__input-label" for="size--xs">
-              <span class="visually-hidden">choose size </span>XS
-            </label>
-
-            <input
-              class="product__input-radio visually-hidden"
-              type="radio"
-              name="size"
-              id="size--s"
-              value="s"
-              checked
-            >
-            <label class="product__input-label" for="size--s">
-              <span class="visually-hidden">choose size </span>S
-            </label>
-
-            <input class="product__input-radio visually-hidden" type="radio" name="size" id="size--m" value="m">
-            <label class="product__input-label" for="size--m">
-              <span class="visually-hidden">choose size </span>M
-            </label>
-
-            <input class="product__input-radio visually-hidden" type="radio" name="size" id="size--l" value="l">
-            <label class="product__input-label" for="size--l">
-              <span class="visually-hidden">choose size </span>L
-            </label>
-
-            <input class="product__input-radio visually-hidden" type="radio" name="size" id="size--xl" value="xl">
-            <label class="product__input-label" for="size--xl">
-              <span class="visually-hidden">choose size </span>XL
-            </label>
-
-            <input
-              class="product__input-radio visually-hidden"
-              type="radio"
-              name="size"
-              id="size--2xl"
-              value="2xl"
-              disabled
-            >
-            <label class="product__input-label" for="size--2xl">
-              <span class="visually-hidden">choose size </span>2XL
-            </label>
-          </div>
         </fieldset>
-
-        <fieldset class="fieldset product__fieldset">
-          <legend class="product__input-title">Color<span aria-hidden="true"> - White</span></legend>
-          <div class="product__input-container">
-            <input
-              class="product__input-radio visually-hidden"
-              type="radio"
-              id="color--white"
-              name="color"
-              value="white"
-              checked
-            >
-            <label class="product__input-label product__input-label--color" for="color--white" title="White">
-              <span class="product__color product__color--white"></span>
-              <span class="visually-hidden">choose color white</span>
-            </label>
-
-            <input
-              class="product__input-radio visually-hidden"
-              type="radio"
-              id="color--black"
-              name="color"
-              value="black"
-            >
-            <label class="product__input-label product__input-label--color" for="color--black" title="Black">
-              <span class="product__color product__color--black"></span>
-              <span class="visually-hidden">choose color black</span>
-            </label>
-
-            <input
-              class="product__input-radio visually-hidden"
-              type="radio"
-              id="color--gray"
-              name="color"
-              value="gray"
-            >
-            <label class="product__input-label product__input-label--color" for="color--gray" title="Gray">
-              <span class="product__color product__color--gray"></span>
-              <span class="visually-hidden">choose color gray</span>
-            </label>
-
-            <input
-              class="product__input-radio visually-hidden"
-              type="radio"
-              id="color--purple-latte"
-              name="color"
-              value="purple latte"
-            >
-            <label
-              class="product__input-label product__input-label--color"
-              for="color--purple-latte"
-              title="Purple latte"
-            >
-              <span class="product__color product__color--purple-latte"></span>
-              <span class="visually-hidden">choose color purple latte</span>
-            </label>
-
-            <input
-              class="product__input-radio product__input-radio--color visually-hidden"
-              type="radio"
-              id="color--red"
-              name="color"
-              value="red"
-              disabled
-            >
-            <label class="product__input-label product__input-label--color" for="color--red" title="Red">
-              <span class="product__color product__color--red"></span>
-              <span class="visually-hidden">choose color red</span>
-            </label>
-
-            <input
-              class="product__input-radio product__input-radio--color visually-hidden"
-              type="radio"
-              id="color--orange"
-              name="color"
-              value="orange"
-              disabled
-            >
-            <label class="product__input-label product__input-label--color" for="color--orange" title="Orange">
-              <span class="product__color product__color--orange"></span>
-              <span class="visually-hidden">choose color orange</span>
-            </label>
-          </div>
-        </fieldset>
+      {%- endfor -%}
 
         <fieldset class="fieldset product__fieldset product__fieldset--last">
           <legend class="product__input-title product__input-title--quantity">
@@ -283,9 +154,3 @@
   ]
 }
 {% endschema %}
-
-{% stylesheet %}
-{% endstylesheet %}
-
-{% javascript %}
-{% endjavascript %}

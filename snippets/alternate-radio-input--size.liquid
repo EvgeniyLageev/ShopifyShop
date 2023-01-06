@@ -1,0 +1,17 @@
+
+
+  <input
+    class='product__input-radio product__input-radio--{{ option.name | downcase }} visually-hidden'
+    type='radio'
+    name='{{ option.name | escape | downcase}}'
+    id='{{ option.name | downcase }}-{{ value | downcase }}'
+    value='{{ value | escape | downcase }}'
+    {% if option.selected_value == value %}
+      checked
+    {% endif %}
+  >
+  <label class="product__input-label" for='{{ option.name | downcase }}-{{ value | downcase }}'>
+    <span class='visually-hidden'>choose size {{ option.name | downcase }}:</span>
+    {{ value | downcase }}
+  </label>
+
