@@ -1,0 +1,35 @@
+:root {
+  --border-color: var(--palette-dark-silver);
+  /* Palette */
+
+  --palette-mirage: #1a1f29;
+  /* --text-color, --hover-color */
+  --palette-dark-silver: #ccc;
+  /* --border-color */
+  --palette-silver: #bdbdbd;
+  --palette-shuttle-gray: #5e626b;
+  /* --color-tax */
+  --palette-deep-koamaru: #171c8f;
+  /* --button-color */
+  --palette-manatee: #929499;
+  /* --disabled-color */
+  --palette-persian-blue: #1b23da;
+  /* --input-focus */
+  --palette-royal-blue: #4047e7;
+  --palette-concrete: #f2f2f2;
+  /* --disabled-background */
+  --palette-scorpion: #636161;
+
+  /* Slots */
+  --text-color: var(--palette-mirage);
+  --disabled-color: var(--palette-manatee);
+  --color-tax: var(--palette-shuttle-gray);
+  --hover-color: var(--palette-mirage);
+  --input-focus: var(--palette-persian-blue);
+  --disabled-background: var(--palette-concrete);
+  --button-color: var(--palette-deep-koamaru);
+  --link-hover: var(--palette-scorpion);
+  --color-slash: var(--palette-manatee);
+  --button-active: var(--palette-persian-blue);
+  --heading-color: var(--palette-deep-koamaru);
+}

@@ -1,0 +1,96 @@
+/* Reset & Common */
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+.page {
+  margin: 0;
+  letter-spacing: 0.01rem;
+  color: var(--text-color);
+  font: 400 1rem/1.25 "Avenir Next Rounded Std", sans-serif;
+}
+
+.visually-hidden {
+  position: absolute;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  width: 0.0625rem;
+  height: 0.0625rem;
+  padding: 0;
+  border: 0;
+}
+
+.skip-to {
+  position: absolute;
+  top: 0;
+  transform: translateY(-100%);
+  display: block;
+  width: 25rem;
+  padding: 0.5rem;
+  text-decoration: none;
+  color: white;
+  background-color: black;
+  transition: transform 0.3s;
+}
+
+.skip-to:focus,
+.skip-to:active {
+  z-index: 999;
+  transform: translateY(0%);
+}
+
+.link {
+  text-decoration: none;
+  color: var(--text-color);
+}
+
+.link:hover {
+  border-bottom: 0.0625rem solid var(--link-hover);
+}
+
+.list {
+  display: flex;
+  padding-left: 0;
+  list-style: none;
+}
+
+.text {
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.heading {
+  margin: 0;
+  font-weight: 400;
+}
+
+.fieldset {
+  padding: 0;
+  border: none;
+}
+
+.heading--lg {
+  font-size: 1.375rem;
+}
+
+.heading--md {
+  font-size: 1rem;
+}
+
+.heading--s {
+  letter-spacing: 0.0625rem;
+  text-transform: uppercase;
+  font-size: 0.8125rem;
+  line-height: 1.125rem;
+}
+
+.heading--blue {
+  color: var(--heading-color);
+}
+
+.container {
+  max-width: 90rem;
+  margin: 0 auto;
+}
