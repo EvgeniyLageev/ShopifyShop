@@ -3,16 +3,16 @@
     {%- if section.blocks.size > 0 -%}
       {%- for block in section.blocks -%}
         {%- case block.type -%}
-          {%- when 'about' -%}
-            {%- render 'alternate-footer-about',
+          {%- when "about" -%}
+            {%- render "alternate-footer-about",
               heading: block.settings.heading,
               text: block.settings.text,
               facebook_link: block.settings.facebook_link,
               instagram_link: block.settings.instagram_link,
               copyright: block.settings.copyright
             -%}
-          {%- when 'menu' -%}
-            {%- render 'alternate-footer-menu', heading: block.settings.heading, link_list: block.settings.link_list -%}
+          {%- when "menu" -%}
+            {%- render "alternate-footer-menu", heading: block.settings.heading, link_list: block.settings.link_list -%}
         {%- endcase -%}
       {%- endfor -%}
     {%- endif -%}

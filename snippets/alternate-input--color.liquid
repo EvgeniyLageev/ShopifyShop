@@ -1,0 +1,19 @@
+
+
+
+  <input
+    class="product__input-radio product__input-radio--{{option.name | downcase}} visually-hidden"
+    type="radio"
+    name="options[{{ option.name | escape }}]"
+    id="{{ option.name | downcase }}-{{ value | downcase }}"
+    value="{{ value | escape }}"
+    {% if option.selected_value == value %}
+      checked
+    {% endif %}
+  >
+  <label class="product__input-label product__input-label--color" for="{{ option.name | downcase }}-{{ value | downcase }}">
+    <span class="visually-hidden">choose {{ option.name | downcase }}: {{ value | downcase }}</span>
+    <span class="product__color {% if value == "White" %}product__color--white{% endif %}" style="background-color:{{value | downcase}}"></span>
+    </label>
+
+

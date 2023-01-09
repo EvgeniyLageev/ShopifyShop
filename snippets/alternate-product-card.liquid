@@ -35,9 +35,11 @@
     </div>
 
     <p class="product-card__code">
-      {{ shop.currency }}
-      {{ product.price | money_without_trailing_zeros }}
-    </p>
+      <span class="visually-hidden">price:</span>
+      {{- shop.currency -}}&nbsp
+    <span class="product__code--number">{{ product.selected_or_first_available_variant.price | money_without_currency }}
+  </span>
+  </p>
 
     {%- unless product.available -%}
       <ul

@@ -1,24 +1,41 @@
-<div class="product main__product">
+
   <section class="product__product-card"
+    aria-labelledby="heading-{{ product.handle }}"
     data-section-type="alternate-main-product"
     data-section-id="{{ section.id }}">
+
+    <img
+      class="product__image"
+      src="{{ product.featured_image | image_url }}"
+      width="473"
+      height="707"
+      alt=""
+      role="presentation"
+      loading="lazy"
+    >
+
     <div class="product__info">
-      <h1 class="product__name heading heading--lg">{{ product.title }}</h1>
-      <p class="product__code">{{- shop.currency -}}&nbsp<span class="product__code--number">{{ product.selected_or_first_available_variant.price | money_without_currency }}</span></p>
+      <h1 class="product__name heading heading--lg" id="heading-{{ product.handle }}">{{ product.title }}</h1>
+      <p class="product__code">
+        <span class="visually-hidden">price:</span>
+        {{- shop.currency -}}&nbsp
+      <span class="product__code--number">{{ product.selected_or_first_available_variant.price | money_without_currency }}
+    </span>
+    </p>
       <p class="product__tax">Tax included</p>
 
-      {%- form 'product', product, class: 'product__form form', aria-lable: 'order details', data-handle: product.handle -%}
+      {%- form "product", product, class: "product__form form", aria-label: "order details", data-handle: product.handle -%}
 
         {%- for option in product.options_with_values -%}
-        <fieldset class="fieldset product__fieldset product__fieldset--{{ option.name | downcase }}">
-          <legend class="product__input-title">{{ option.name }} {% if option.name == 'Color' %}- <span></span>{% endif %}</legend>
+        <fieldset class="fieldset product__fieldset">
+          <legend class="product__input-title">{{ option.name }} {% if option.name == "Color" %}- <span class="product__input-title--color"></span>{% endif %}</legend>
           <div class="product__input-container">
           {%- for value in option.values -%}
             {%- case option.name -%}
-              {%- when 'Size' -%}
-                {%- render 'alternate-radio-input--size', option: option, value: value -%}
-              {%- when 'Color' -%}
-                {%- render 'alternate-radio-input--color', option: option, value: value -%}
+              {%- when "Size" -%}
+                {%- render "alternate-input--size", option: option, value: value -%}
+              {%- when "Color" -%}
+                {%- render "alternate-input--color", option: option, value: value -%}
               {%- endcase -%}
           {%- endfor -%}
          </div>
@@ -32,6 +49,11 @@
           </legend>
 
           <div class="product__quantity">
+
+            <button class="product__quantity-button product__quantity-button--decrease" type="button" aria-label="decrease quantity by one">
+              <span aria-hidden="true">−</span>
+            </button>
+
             <input
               class="product__quantity-input"
               type="number"
@@ -42,19 +64,15 @@
               name="quantity"
             >
 
-            <button class="product__quantity-button product__quantity-button--decrease" type="button">
-              <span class="visually-hidden">Decrease quantity</span>
-            </button>
-
-            <button class="product__quantity-button product__quantity-button--increase" type="button">
-              <span class="visually-hidden">Increase quantity</span>
+            <button class="product__quantity-button product__quantity-button--increase" type="button" aria-label="increase quantity by one">
+              <span aria-hidden="true">+</span>
             </button>
           </div>
         </fieldset>
 
         <div class="product__button-container">
           <button class="button button--add" type="submit" name="type" value="add">
-            <span>add <span class="visually-hidden">White unisex t-shirt</span> to cart</span>
+            <span>add <span class="visually-hidden">{{ product.title | downcase }}</span> to cart</span>
           </button>
           <span
             class="form__error"
@@ -63,7 +81,7 @@
           >
           </span>
           <button class="button button--buy" type="submit" name="type" value="buy">
-            <span>buy <span class="visually-hidden">White unisex t-shirt</span> it now</span>
+            <span><span class="visually-hidden">{{ product.title | downcase }}</span>buy it now</span>
           </button>
         </div>
       {%- endform -%}
@@ -72,23 +90,11 @@
         <p class="product__description product__description--last">{{ product.description }}</p>
       {% endif %}
     </div>
-
-    <img
-      class="product__image"
-      src="{{ product.featured_image | image_url }}"
-      width="473"
-      height="707"
-      alt=""
-      role="presentation"
-      loading="lazy"
-    >
+  
   </section>
 
 
-
-
-
-  {%- assign accordions = section.blocks | where: 'type', 'accordeon' -%}
+  {%- assign accordions = section.blocks | where: "type", "accordeon" -%}
   {%- if accordions.size > 0 -%}
     <section
       class="product__additional accordion"
@@ -118,11 +124,13 @@
       {% endfor %}
     </section>
   {%- endif -%}
-</div>
+
 
 {% schema %}
 {
   "name": "alternate-main-product",
+  "tag": "div",
+  "class": "product main__product",
   "templates": ["product"],
   "limit": 1,
   "settings": [],

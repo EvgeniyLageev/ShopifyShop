@@ -1,6 +1,7 @@
 <header class="page__header header" 
   data-section-type="alternate-header" 
-  data-section-id="{{ section.id }}">
+  data-section-id="{{ section.id }}"
+>
   <a class="skip-to" href="#main">Skip to main content</a>
   <div class="header__wrapper container">
     <nav class="header__main-menu main-menu" aria-label="Main Menu">
@@ -12,6 +13,8 @@
         {%- endfor -%}
       </ul>
     </nav>
+
+
     <a class="link header__logo link--disabled" href="/">
       <span class="visually-hidden">Homepage</span>
 
@@ -28,14 +31,16 @@
         <p>{{ shop.name }}</p>
       {% endif %}
     </a>
+
+
     <nav class="header__main-menu main-menu" aria-label="Account Menu">
       <ul class="main-menu__list list" role="list">
         <li><a class="link" href="{{ routes.account_addresses_url }}">Account</a></li>
         <li><a class="link" href="{{ routes.search_url }}">Search</a></li>
         <li>
-          <a class="link" href="/cart">
+          <a class="link" href="{{ routes.cart_url }}">
             <span class="main-menu__counter" aria-hidden="true">Cart ({{ cart.item_count }})</span>
-            <span class="visually-hidden" aria-live="polite" role="status">Cart has {{ cart.item_count }} items</span>
+            <span class="visually-hidden" aria-live="polite">Cart has {{ cart.item_count }} items</span>
           </a>
         </li>
       </ul>

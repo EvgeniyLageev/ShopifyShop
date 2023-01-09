@@ -1,7 +1,9 @@
-import { register } from '@shopify/theme-sections';
-import { getUrlWithVariant, ProductForm } from '@shopify/theme-product-form';
-import { formatMoney } from '@shopify/theme-currency';
+/* eslint-disable no-new */
+/* eslint-disable no-console */
 
+import {register} from '@shopify/theme-sections';
+import {getUrlWithVariant, ProductForm} from '@shopify/theme-product-form';
+import {formatMoney} from '@shopify/theme-currency';
 
 class Accordion {
   constructor(button) {
@@ -35,145 +37,149 @@ class Accordion {
   }
 }
 
-class QuantityPicker {
-  constructor(fieldset) {
-    this.fieldset = fieldset;
+const form = document.querySelector('.product__form');
+const errorMessage = document.querySelector('.form__error');
+const colorTitle = document.querySelector('.product__input-title--color');
 
-    this.input = this.fieldset.querySelector('.product__quantity-input');
-
-    this.buttonDecrease = this.fieldset.querySelector('.product__quantity-button--decrease');
-    this.buttonIncrease = this.fieldset.querySelector('.product__quantity-button--increase');
-  }
-
-  init = () => {
-    this.input.addEventListener('input', this.handleInput);
-    this.buttonDecrease.addEventListener('click', this.decreaseQuantity);
-    this.buttonIncrease.addEventListener('click', this.increaseQuantity);
-  }
-
+class Quantity {
   destroy = () => {
-    this.input.removeEventListener('input', this.handleInput);
-    this.buttonDecrease.removeEventListener('click', this.decreaseQuantity);
-    this.buttonIncrease.removeEventListener('click', this.increaseQuantity);
-  }
+    this.input.removeEventListener('input', this.handle);
+    this.buttonDecrease.removeEventListener('click', this.decrease);
+    this.buttonIncrease.removeEventListener('click', this.increase);
+  };
 
-  decreaseQuantity = () => {
-    errorMessage.innerHTML = ""
-    const quantity = this.getInputValue();
+  decrease = () => {
+    errorMessage.innerHTML = '';
+    const quantity = this.getValue();
 
     if (quantity > this.input.min) {
-      this.setInputValue(quantity - 1);
+      this.setValue(quantity - 1);
     }
-  }
+  };
 
-  increaseQuantity = () => {
-    errorMessage.innerHTML = ""
-    const quantity = this.getInputValue();
+  increase = () => {
+    errorMessage.innerHTML = '';
+    const quantity = this.getValue();
 
     if (quantity < this.input.max) {
-      this.setInputValue(quantity + 1);
+      this.setValue(quantity + 1);
     }
+  };
 
-  }
-
-  handleInput = () => {
-    errorMessage.innerHTML = ""
-    const quantity = this.getInputValue();
+  handle = () => {
+    errorMessage.innerHTML = '';
+    const quantity = this.getValue();
 
     if (quantity < this.input.min) {
-      this.setInputValue(1)
+      this.setValue(1);
     } else if (quantity > this.input.max) {
-      this.setInputValue(this.input.max)
+      this.setValue(this.input.max);
     }
-  }
+  };
 
-  getInputValue = () => {
+  getValue = () => {
     return Number(this.input.value);
-  }
+  };
 
-  setInputValue = (newValue) => {
+  setValue = (newValue) => {
     this.input.value = newValue;
+  };
+
+  constructor(fieldset) {
+    this.fieldset = fieldset;
+    this.input = this.fieldset.querySelector('.product__quantity-input');
+    this.buttonDecrease = this.fieldset.querySelector(
+      '.product__quantity-button--decrease',
+    );
+    this.buttonIncrease = this.fieldset.querySelector(
+      '.product__quantity-button--increase',
+    );
+
+    this.input.addEventListener('input', this.handle);
+    this.buttonDecrease.addEventListener('click', this.decrease);
+    this.buttonIncrease.addEventListener('click', this.increase);
   }
 }
 
-const form = document.querySelector(".product__form")
-const errorMessage = document.querySelector(".form__error")
-
-
-register("alternate-main-product", {
+register('alternate-main-product', {
   accordions: {},
   productForm: null,
   quantityPicker: null,
 
-  toggle: function (event) {
+  toggle(event) {
     const button = event.target.querySelector('.accordion__button');
     const id = button.getAttribute('aria-controls').split('--').pop();
     this.accordions[id].toggle();
   },
 
-  onOptionChange: function (event) {
-    errorMessage.innerHTML = ""
+  onOptionChange(event) {
+    errorMessage.innerHTML = '';
     const variant = event.dataset.variant;
 
     if (!variant) return;
 
     const url = getUrlWithVariant(window.location.href, variant.id);
-    window.history.replaceState({ path: url }, '', url);
+    window.history.replaceState({path: url}, '', url);
 
-    document.querySelector(".product__code--number").innerHTML = formatMoney(
+    document.querySelector('.product__code--number').innerHTML = formatMoney(
       variant.price,
       '{{ amount_with_comma_separator }}',
     );
 
     if (variant.available) {
-      document.querySelector(".button--add").disabled = false;
+      document.querySelector('.button--add').disabled = false;
     } else {
-      document.querySelector(".button--add").disabled = true;
-      errorMessage.innerHTML = "Temporarily unavailable"
+      document.querySelector('.button--add').disabled = true;
+      errorMessage.innerHTML = 'Temporarily unavailable';
     }
+
+    event.dataset.options.forEach((el) => {
+      if (el.name === 'Color') {
+        colorTitle.innerHTML = el.value;
+      }
+    });
   },
 
-  onFormSubmit: function (event) {
-    event.preventDefault()
-    let formData = new FormData(event.target);
-    formData.append("sections", "alternate-header");
+  onFormSubmit(event) {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    formData.append('sections', 'alternate-header');
 
     fetch(`${Shopify.routes.root}cart/add.js`, {
       method: event.target.method,
       body: formData,
       headers: {
-        "X-Requested-With": "XMLHttpRequest"
-      }
-    }).then(response => response.json())
+        'X-Requested-With': 'XMLHttpRequest',
+      },
+    })
+      .then((response) => response.json())
       .then((data) => {
         if (data.id) {
-          const event = new CustomEvent("cart:added", {
+          const customEvent = new CustomEvent('cart:added', {
             detail: {
               updatedHeader: data.sections['alternate-header'],
             },
-            bubles: true
-          })
-          window.dispatchEvent(event);
+            bubles: true,
+          });
+          window.dispatchEvent(customEvent);
         } else {
           const message = `${data.message} (${data.status}): ${data.description}`;
-          errorMessage.innerHTML = message
+          errorMessage.innerHTML = message;
           throw new Error(message);
         }
       })
-      .catch(error => {
-        console.log(error)
-      })
+      .catch((error) => {
+        console.log(error);
+      });
   },
 
-  onLoad: function () {
+  onLoad() {
     const accordionButtons = document.querySelectorAll('.accordion__button');
     accordionButtons.forEach((el) => {
       this.accordions[new Accordion(el).id] = new Accordion(el);
     });
 
-
     const productHandle = form.dataset.handle;
-
 
     fetch(`${Shopify.routes.root}products/${productHandle}.js`)
       .then((response) => {
@@ -187,13 +193,18 @@ register("alternate-main-product", {
       })
       .catch(console.error);
 
-
     const fieldsetQuantity = form.querySelector('.product__fieldset--quantity');
-    this.quantityPicker = new QuantityPicker(fieldsetQuantity);
-    this.quantityPicker.init();
+    this.quantityPicker = new Quantity(fieldsetQuantity);
+
+    const colorInputs = form.querySelectorAll('.product__input-radio--color');
+    colorInputs.forEach((el) => {
+      if (el.checked) {
+        colorTitle.innerHTML = el.value;
+      }
+    });
   },
 
-  onUnload: function () {
+  onUnload() {
     for (const accordion of Object.values(this.accordions)) {
       accordion.destroy();
     }
@@ -201,25 +212,18 @@ register("alternate-main-product", {
     this.productForm.destroy();
   },
 
-  onSelect: function () {
-  },
-
-  onDeselect: function () {
-  },
-
   onBlockSelect(evt) {
-    this.toggle(evt)
+    this.toggle(evt);
   },
 
   onBlockDeselect(evt) {
-    this.toggle(evt)
+    this.toggle(evt);
   },
 });
-
 
 document.addEventListener('DOMContentLoaded', () => {
   const accordions = document.querySelectorAll('.accordion__button');
   accordions.forEach((el) => {
     new Accordion(el);
   });
-})
+});

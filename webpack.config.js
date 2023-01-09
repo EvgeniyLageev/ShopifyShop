@@ -1,9 +1,8 @@
-
-const path = require('path')
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const path = require('path');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
-  entry: ['./src/scripts/index.js', './src/styles/index.css'],
+  entry: ['./src/scripts/index.js', './src/styles/index.scss'],
   output: {
     filename: 'theme.min.js',
     path: path.resolve(__dirname, 'assets'),
@@ -14,9 +13,7 @@ module.exports = {
         test: /\.js$/,
         loader: 'babel-loader',
         options: {
-          presets: [
-            '@shopify/babel-preset',
-          ],
+          presets: ['@shopify/babel-preset'],
         },
       },
       {
@@ -32,9 +29,7 @@ module.exports = {
             loader: 'postcss-loader',
             options: {
               postcssOptions: {
-                plugins: [
-                  '@shopify/postcss-plugin',
-                ],
+                plugins: ['@shopify/postcss-plugin'],
               },
             },
           },
@@ -48,7 +43,7 @@ module.exports = {
             },
           },
         ],
-      }
+      },
     ],
   },
   plugins: [
@@ -56,4 +51,4 @@ module.exports = {
       filename: 'theme.min.css',
     }),
   ],
-}
+};

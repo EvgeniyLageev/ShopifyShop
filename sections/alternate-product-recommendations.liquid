@@ -1,19 +1,21 @@
-<section class="product-preview">
+
   <h2 class="heading product-preview__heading heading--lg heading--blue">{{ section.settings.heading }}</h2>
 
   {%- assign collection = section.settings.collection -%}
   {%- if collection.all_products_count > 0 -%}
-    <ul class="list product-preview__list">
+    <ul class="list product-preview__list" role="list">
       {%- for product in collection.products limit: section.settings.number_of_products -%}
-        {%- render 'alternate-product-card', product: product -%}
+        {%- render "alternate-product-card", product: product -%}
       {%- endfor -%}
     </ul>
   {%- endif -%}
-</section>
+
 
 {% schema %}
 {
   "name": "alt-product-rec",
+  "tag": "section",
+  "class": "product-preview",
   "settings": [
     {
       "type": "text",

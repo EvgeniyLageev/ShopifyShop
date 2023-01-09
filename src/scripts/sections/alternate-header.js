@@ -1,22 +1,21 @@
-
-import { register } from "@shopify/theme-sections";
+import {register} from '@shopify/theme-sections';
 
 register('alternate-header', {
-
-  handleCartUpdate(evt) {
+  handleCartUpdate(event) {
     const header = new DOMParser().parseFromString(
-      evt.detail.updatedHeader,
+      event.detail.updatedHeader,
       'text/html',
     );
 
-    let targetCart = document.querySelector(".main-menu__counter")
-    let parseCart = header.querySelector(".main-menu__counter")
-    const accessibilityCart = document.querySelector('span[aria-live=polite][role=status]');
+    const targetCart = document.querySelector('.main-menu__counter');
+    const parseCart = header.querySelector('.main-menu__counter');
+    const accessibilityCart = document.querySelector(
+      'span[aria-live=polite][class=visually-hidden]',
+    );
     const quantity = parseCart.textContent.match(/\d+/)[0];
 
-    targetCart.textContent = `Cart (${quantity})`
+    targetCart.textContent = `Cart (${quantity})`;
     accessibilityCart.textContent = `Cart has ${quantity} item`;
-
   },
 
   onLoad() {
@@ -26,13 +25,4 @@ register('alternate-header', {
   onUnload() {
     window.removeEventListener('cart:added', this.handleCartUpdate);
   },
-
-  onSelect() { },
-
-  onDeselect() { },
-
-  onBlockSelect() { },
-
-  onBlockDeselect() { },
 });
-

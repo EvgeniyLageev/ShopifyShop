@@ -1,4 +1,4 @@
-<nav class="main__breadcrumb breadcrumb" aria-label="Breadcrumbs">
+<nav class="main__breadcrumb breadcrumb" aria-label="breadcrumbs">
   <ol class="list" role="list">
     <li class="breadcrumb__item">
       <a class="link" href="{{ routes.root_url }}">Home</a>
@@ -10,7 +10,7 @@
       </li>
     {% endif %}
     <li class="breadcrumb__item">
-      <a class="link link--disabled">{{ product.title }}</a>
+      <a class="link link--disabled" aria-current="page" aria-disabled="true">{{ product.title }}</a>
     </li>
   </ol>
 </nav>
