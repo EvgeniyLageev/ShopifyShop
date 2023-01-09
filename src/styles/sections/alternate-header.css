@@ -9,6 +9,15 @@
   align-items: center;
   justify-content: space-between;
   padding: 2.1rem 4rem;
+  flex-wrap: wrap;
+  gap: 12rem;
+}
+
+@media (max-width: 850px) {
+  .header__wrapper {
+    padding: 0.5rem 0.5rem;
+    justify-content: center;
+  }
 }
 
 @media (max-width: 1056px) {

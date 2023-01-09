@@ -3,9 +3,31 @@
   letter-spacing: normal;
 }
 
+@media (max-width: 1256px) {
+  .breadcrumb {
+    display: flex;
+    justify-content: center;
+  }
+}
+
 .main__breadcrumb {
   margin-left: 18.3rem;
+  margin-right: 18.3rem;
   margin-bottom: 2.25rem;
+}
+
+@media (max-width: 1256px) {
+  .main__breadcrumb {
+    margin-left: 10rem;
+    margin-right: 10rem;
+  }
+}
+
+@media (max-width: 780px) {
+  .main__breadcrumb {
+    margin-left: 2rem;
+    margin-right: 2rem;
+  }
 }
 
 .link--disabled {
