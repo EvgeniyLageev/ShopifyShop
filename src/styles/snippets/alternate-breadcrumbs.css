@@ -1,0 +1,26 @@
+.breadcrumb {
+  font-size: 0.75rem;
+  letter-spacing: normal;
+}
+
+.main__breadcrumb {
+  margin-left: 18.3rem;
+  margin-bottom: 2.25rem;
+}
+
+.link--disabled {
+  color: var(--disabled-color);
+}
+
+.link--disabled:hover {
+  border: none;
+}
+
+.breadcrumb__item+.breadcrumb__item::before {
+  display: inline-block;
+  height: 0.8rem;
+  margin: 0 0.73rem 0;
+  content: "";
+  transform: rotate(22deg);
+  border-right: 0.1rem solid var(--disabled-color);
+}

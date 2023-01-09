@@ -4,3 +4,12 @@
 
 @import './sections/style.css';
 @import './sections/alternate-footer.css';
+@import './sections/alternate-header.css';
+@import './sections/alternate-product-recommendations.css';
+
+@import './snippets/alternate-product-card.css';
+@import './snippets/alternate-breadcrumbs.css';
+@import './snippets/alternate-footer-about.css';
+@import './snippets/alternate-footer-menu.css';
+@import './snippets/alternate-radio-input--size.css';
+@import './snippets/alternate-radio-input--color.css';

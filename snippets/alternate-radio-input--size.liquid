@@ -3,9 +3,9 @@
   <input
     class='product__input-radio product__input-radio--{{ option.name | downcase }} visually-hidden'
     type='radio'
-    name='{{ option.name | escape | downcase}}'
+    name='options[{{ option.name | escape }}]'
     id='{{ option.name | downcase }}-{{ value | downcase }}'
-    value='{{ value | escape | downcase }}'
+    value='{{ value | escape }}'
     {% if option.selected_value == value %}
       checked
     {% endif %}

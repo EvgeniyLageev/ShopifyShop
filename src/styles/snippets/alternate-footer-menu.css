@@ -1,0 +1,17 @@
+.footer__list {
+  flex-direction: column;
+}
+
+.footer__link {
+  letter-spacing: 0.0625rem;
+  color: #5e626b;
+  line-height: 2rem;
+}
+
+.footer__heading {
+  margin-bottom: 1.5rem;
+}
+
+.text {
+  padding-left: 19.94rem;
+}

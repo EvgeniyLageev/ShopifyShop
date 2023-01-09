@@ -22,31 +22,3 @@
     gap: 0;
   }
 }
-
-.footer__list {
-  flex-direction: column;
-}
-
-.footer__link {
-  letter-spacing: 0.0625rem;
-  color: #5e626b;
-  line-height: 2rem;
-}
-
-.footer__heading {
-  margin-bottom: 1.5rem;
-}
-
-.footer__adress {
-  letter-spacing: 0.0625rem;
-  font-style: normal;
-  line-height: 2rem;
-}
-
-.footer__list--address {
-  gap: 1.125rem;
-}
-
-.text {
-  padding-left: 19.94rem;
-}

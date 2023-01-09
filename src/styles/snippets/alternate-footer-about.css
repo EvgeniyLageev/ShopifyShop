@@ -1,0 +1,9 @@
+.footer__adress {
+  letter-spacing: 0.0625rem;
+  font-style: normal;
+  line-height: 2rem;
+}
+
+.footer__list--address {
+  gap: 1.125rem;
+}

@@ -1,0 +1,37 @@
+.product__input-label--color {
+  border-color: transparent;
+}
+
+.product__color {
+  width: 2.125rem;
+  height: 2.125rem;
+}
+
+.product__color--white {
+  border: 0.0312rem solid var(--border-color);
+  background-color: #fff;
+}
+
+.product__color--black {
+  background-color: #1a1f29;
+}
+
+.product__color--gray {
+  background-color: #aeaeb0;
+}
+
+.product__color--purple-latte {
+  background-color: #ba9be5;
+}
+
+.product__color--red {
+  background-color: #e9a0a7;
+}
+
+.product__color--orange {
+  background-color: #f8cab1;
+}
+
+.product__input-radio--color:disabled+.product__input-label {
+  background-color: transparent;
+}

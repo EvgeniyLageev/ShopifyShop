@@ -1,0 +1,40 @@
+.product__input-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2.5rem;
+  height: 2.5rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 0.0625rem solid var(--border-color);
+  text-transform: uppercase;
+}
+
+.product__input-label:hover {
+  border-color: var(--hover-color);
+}
+
+.product__input-radio:checked+.product__input-label {
+  border-color: var(--hover-color);
+}
+
+.product__input-radio:focus-visible+.product__input-label {
+  border: 0.0625rem solid var(--input-focus);
+}
+
+.product__input-radio:disabled+.product__input-label {
+  position: relative;
+  cursor: default;
+  color: var(--disabled-color);
+  border: none;
+  background-color: var(--disabled-background);
+}
+
+.product__input-radio:disabled+.product__input-label::after {
+  position: absolute;
+  width: 3.4375rem;
+  height: 0.0625rem;
+  content: "";
+  transform: rotate(-45deg);
+  background-color: var(--border-color);
+}

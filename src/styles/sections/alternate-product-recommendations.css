@@ -1,0 +1,24 @@
+.product-preview__heading {
+  margin-bottom: 3.9rem;
+  text-align: center;
+}
+
+.product-preview__list {
+  justify-content: center;
+  margin: 0;
+  gap: 4rem;
+}
+
+@media (max-width: 1256px) {
+  .product-preview__list {
+    justify-content: space-around;
+    gap: 0;
+  }
+}
+
+@media (max-width: 1056px) {
+  .product-preview__list {
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+}

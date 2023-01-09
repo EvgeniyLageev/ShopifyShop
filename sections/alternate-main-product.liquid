@@ -1,11 +1,13 @@
 <div class="product main__product">
-  <section class="product__product-card">
+  <section class="product__product-card"
+    data-section-type="alternate-main-product"
+    data-section-id="{{ section.id }}">
     <div class="product__info">
       <h1 class="product__name heading heading--lg">{{ product.title }}</h1>
-      <p class="product__code">{{ product.price | money_with_currency }}</p>
+      <p class="product__code">{{- shop.currency -}}&nbsp<span class="product__code--number">{{ product.price | money_without_currency }}</span></p>
       <p class="product__tax">Tax included</p>
 
-      {%- form 'product', product, class: 'product__form form', aria-lable: 'order details' -%}
+      {%- form 'product', product, class: 'product__form form', aria-lable: 'order details', data-handle: product.handle -%}
 
         {%- for option in product.options_with_values -%}
         <fieldset class="fieldset product__fieldset product__fieldset--{{ option.name | downcase }}">
@@ -82,12 +84,14 @@
     >
   </section>
 
+
+
+
+
   {%- assign accordions = section.blocks | where: 'type', 'accordeon' -%}
   {%- if accordions.size > 0 -%}
     <section
       class="product__additional accordion"
-      data-section-type="alternate-main-product"
-      data-section-id="{{ section.id }}"
     >
       {% for block in accordions %}
         <div class="product__additional-topic" {{ block.shopify_attributes }}>
