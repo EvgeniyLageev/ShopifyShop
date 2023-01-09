@@ -9,12 +9,26 @@
       aria-label="social links"
     >
       <li>
-        <a class="link link--disabled" href="{{ facebook_link }}" target="_blank">
+        <a class="link link--disabled link--facebook" href="{{ facebook_link }}" target="_blank">
+          <span class='visually-hidden'>our facebook page</span>
+          <img
+            src="{{- "logo__facebook.svg" | asset_url -}}"
+            alt=""
+            role="presentation"
+            loading="lazy"
+          >
         </a>
       </li>
 
       <li>
-        <a class="link link--disabled" href="{{ instagram_link }}" target="_blank">
+        <a class="link link--disabled link--instagram" href="{{ instagram_link }}" target="_blank">
+          <span class='visually-hidden'>our instagram page</span>
+          <img
+            src="{{- "logo__instagram.svg" | asset_url -}}"
+            alt=""
+            role="presentation"
+            loading="lazy"
+          >
         </a>
       </li>
     </ul>
