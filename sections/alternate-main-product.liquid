@@ -4,7 +4,7 @@
     data-section-id="{{ section.id }}">
     <div class="product__info">
       <h1 class="product__name heading heading--lg">{{ product.title }}</h1>
-      <p class="product__code">{{- shop.currency -}}&nbsp<span class="product__code--number">{{ product.price | money_without_currency }}</span></p>
+      <p class="product__code">{{- shop.currency -}}&nbsp<span class="product__code--number">{{ product.selected_or_first_available_variant.price | money_without_currency }}</span></p>
       <p class="product__tax">Tax included</p>
 
       {%- form 'product', product, class: 'product__form form', aria-lable: 'order details', data-handle: product.handle -%}
@@ -26,7 +26,7 @@
         </fieldset>
       {%- endfor -%}
 
-        <fieldset class="fieldset product__fieldset product__fieldset--last">
+        <fieldset class="fieldset product__fieldset product__fieldset--last product__fieldset--quantity">
           <legend class="product__input-title product__input-title--quantity">
             <label for="quantity">Quantity</label>
           </legend>
@@ -38,7 +38,7 @@
               id="quantity"
               value="1"
               min="1"
-              max="999"
+              max="99"
               name="quantity"
             >
 
